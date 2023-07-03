@@ -1,0 +1,22 @@
+#!/bin/bash -l
+#SBATCH -J spatial-sc
+#SBATCH --output logs/spatial-sc.out
+#SBATCH --error logs/spatial-sc.err
+#SBATCH --mail-type END
+#SBATCH --mail-user alexandre.coudray@epfl.ch
+#SBATCH --partition=gpu --qos=gpu --gres=gpu:1
+#SBATCH --time 1:00:00
+#SBATCH --mem 32G
+
+module load intel
+module load cuda
+module load python
+source spatial-sc-env/bin/activate
+
+set -e
+
+mkdir -p logs
+
+python launchNet.py
+
+wait 

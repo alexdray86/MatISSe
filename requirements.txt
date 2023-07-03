@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotlib
+torch
+tifffile
+imageio
+xarray
+scipy
+inspect-it
+scikit-image
